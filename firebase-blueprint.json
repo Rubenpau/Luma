@@ -1,0 +1,43 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Information about the registered user.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "EditedImage": {
+      "title": "Edited Image",
+      "description": "Metadata for an image processed by the AI.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "The UID of the owner." },
+        "originalImageUrl": { "type": "string" },
+        "editedImageUrl": { "type": "string" },
+        "filterType": { "type": "string" },
+        "prompt": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "metadata": { "type": "object" }
+      },
+      "required": ["userId", "originalImageUrl", "editedImageUrl", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles indexed by UID."
+    },
+    "/images/{imageId}": {
+      "schema": "EditedImage",
+      "description": "Collection of all edited images."
+    }
+  }
+}

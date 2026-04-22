@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-beige-50: #fdfcfb;
+  --color-beige-100: #f7f3f0;
+  --color-beige-200: #eee7e2;
+  --color-beige-300: #dfd3cb;
+  --color-brown-900: #2c2420;
+  --color-brown-950: #1a1512;
+}
+
+@layer base {
+  body {
+    @apply bg-beige-100 text-brown-900 font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+.vintage-card {
+  @apply bg-white border border-beige-300/50 shadow-sm rounded-2xl;
+}
+
+.glass-panel {
+  @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-lg;
+}
+
+.btn-primary {
+  @apply bg-brown-900 text-beige-100 px-6 py-2.5 rounded-full font-medium transition-all 
+    hover:bg-brown-950 hover:shadow-md 
+    active:scale-95 
+    disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 disabled:shadow-none;
+}
+
+.btn-secondary {
+  @apply bg-beige-200 text-brown-900 px-6 py-2.5 rounded-full font-medium transition-all 
+    hover:bg-beige-300 hover:shadow-sm
+    active:scale-95 
+    disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 disabled:shadow-none;
+}
